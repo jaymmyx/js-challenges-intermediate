@@ -1,18 +1,25 @@
 function calculator(num1, num2, operation) {
+  let result;
   switch (operation) {
     case "+":
-      return num1 + num2;
+      result = num1 + num2;
+      break;
     case "-":
-      return num1 - num2;
+      result = num1 - num2;
+      break;
     case "*":
-      return num1 * num2;
+      result = num1 * num2;
+      break;
     case "/":
-      return num1 / num2;
+      result = num1 / num2;
+      break;
     case "%":
-      return num1 % num2;
+      result = num1 % num2;
+      break;
     default:
-      return -1;
+      throw new Error("Invalid Operator!");
   }
+  return result;
 }
 
 module.exports = calculator;
