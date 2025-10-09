@@ -52,56 +52,61 @@ const testCases = [
   [[1, 2, 3, 4, 5], 8],
   [[5, 5, 5, 5], 10],
   [[], 5],
-  [[1], 1]
+  [[1], 1],
 ];
 
-console.log('=== Correctness Test ===');
+console.log("=== Correctness Test ===");
 testCases.forEach((test, i) => {
   const [arr, target] = test;
   const yourResult = yourSolution([...arr], target);
   const instructorResult = instructorSolution([...arr], target);
   const optimizedResult = optimizedSolution([...arr], target);
-  
+
   console.log(`Test ${i + 1}: [${arr}], target: ${target}`);
   console.log(`  Your: [${yourResult}]`);
   console.log(`  Instructor: [${instructorResult}]`);
   console.log(`  Optimized: [${optimizedResult}]`);
-  console.log(`  All match: ${JSON.stringify(yourResult) === JSON.stringify(instructorResult) && JSON.stringify(instructorResult) === JSON.stringify(optimizedResult)}`);
+  console.log(
+    `  All match: ${
+      JSON.stringify(yourResult) === JSON.stringify(instructorResult) &&
+      JSON.stringify(instructorResult) === JSON.stringify(optimizedResult)
+    }`
+  );
   console.log();
 });
 
-console.log('=== Performance Test ===');
+console.log("=== Performance Test ===");
 // Large array performance test
-const largeArr = Array.from({length: 10000}, (_, i) => i);
+const largeArr = Array.from({ length: 10000 }, (_, i) => i);
 const target = 19998; // Last two elements
 
-console.time('Your Solution (Brute Force)');
+console.time("Your Solution (Brute Force)");
 for (let i = 0; i < 10; i++) {
   yourSolution([...largeArr], target);
 }
-console.timeEnd('Your Solution (Brute Force)');
+console.timeEnd("Your Solution (Brute Force)");
 
-console.time('Instructor Solution (Set)');
+console.time("Instructor Solution (Set)");
 for (let i = 0; i < 1000; i++) {
   instructorSolution([...largeArr], target);
 }
-console.timeEnd('Instructor Solution (Set)');
+console.timeEnd("Instructor Solution (Set)");
 
-console.time('Optimized Solution (Map)');
+console.time("Optimized Solution (Map)");
 for (let i = 0; i < 1000; i++) {
   optimizedSolution([...largeArr], target);
 }
-console.timeEnd('Optimized Solution (Map)');
+console.timeEnd("Optimized Solution (Map)");
 
-console.log('\n=== Complexity Analysis ===');
-console.log('Your Solution:');
-console.log('  Time: O(n²) - nested loops');
-console.log('  Space: O(1) - constant space');
+console.log("\n=== Complexity Analysis ===");
+console.log("Your Solution:");
+console.log("  Time: O(n²) - nested loops");
+console.log("  Space: O(1) - constant space");
 
-console.log('\nInstructor Solution:');
-console.log('  Time: O(n²) worst case - indexOf is O(n)');
-console.log('  Space: O(n) - Set storage');
+console.log("\nInstructor Solution:");
+console.log("  Time: O(n²) worst case - indexOf is O(n)");
+console.log("  Space: O(n) - Set storage");
 
-console.log('\nOptimized Solution:');
-console.log('  Time: O(n) - single pass');
-console.log('  Space: O(n) - Map storage');
+console.log("\nOptimized Solution:");
+console.log("  Time: O(n) - single pass");
+console.log("  Space: O(n) - Map storage");
