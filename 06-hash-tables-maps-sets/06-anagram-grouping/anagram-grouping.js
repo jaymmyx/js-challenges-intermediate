@@ -2,7 +2,7 @@ function anagramGrouping(words) {
   const anagramGroupMap = new Map();
 
   for (const word of words) {
-    const sortedWord = word.split("").sort().join();
+    const sortedWord = word.split("").sort().join("");
     if (anagramGroupMap.has(sortedWord)) {
       anagramGroupMap.set(
         sortedWord,
@@ -13,7 +13,7 @@ function anagramGrouping(words) {
     }
   }
 
-  return Array.from(anagramGroupMap.values())
+  return Array.from(anagramGroupMap.values());
 }
 
 module.exports = anagramGrouping;
